@@ -1,0 +1,13 @@
+% Implementation of audio equalizer
+function b = equalizer(y, Fs, v, f)
+fpts = [0 f(1)/Fs*2 (f(1)+1)/Fs*2 f(2)/Fs*2 (f(2)+1)/Fs*2 f(3)/Fs*2 ...
+    (f(3)+1)/Fs*2 f(4)/Fs*2 (f(4)+1)/Fs*2 f(5)/Fs*2 (f(5)+1)/Fs*2 f(6)/Fs*2 ...
+    (f(6)+1)/Fs*2 f(7)/Fs*2 (f(7)+1)/Fs*2 f(8)/Fs*2 (f(8)+1)/Fs*2 f(9)/Fs*2 ...
+    (f(9)+1)/Fs*2 f(10)/Fs*2 (f(10)+1)/Fs*2 1];
+
+mval = [v(1) v(1) v(2) v(2) v(3) v(3) v(4) v(4) v(5) v(5) v(6) v(6) v(7) v(7) ...
+    v(8) v(8) v(9) v(9) v(10) v(10) 1 1];
+b = fir2(512, fpts, mval);
+
+
+
